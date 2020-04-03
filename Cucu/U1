@@ -1,0 +1,41 @@
+n=6.next
+
+puts n.class
+
+d="li".class
+puts d
+
+s=9.3456.class
+
+puts s
+
+str="5"
+
+p str
+
+p str.class
+
+x= str.to_i
+
+p x
+
+p x.class
+
+num = 10
+p num.class
+p num.to_s
+
+p num.to_f
+
+p num.to_f.class
+
+
+pi= 3.14
+
+p pi.class
+
+p pi.to_i.class
+
+p pi.to_s
+
+

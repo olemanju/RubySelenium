@@ -1,0 +1,1 @@
+1.step(50,2) {|e| puts "The step values are #{e}"}

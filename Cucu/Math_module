@@ -1,0 +1,7 @@
+
+p Math.methods
+p Math.constants
+
+p Math.sqrt 16
+
+
