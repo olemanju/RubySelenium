@@ -1,0 +1,39 @@
+require 'selenium-webdriver'
+require 'selenium/webdriver/common/alert'
+require 'watir'
+
+Selenium::WebDriver::Chrome::Service.driver_path="D:/Softwares/Drivers/Chrome/79/chromedriver_win32/chromedriver.exe"
+$browser = Selenium::WebDriver.for :chrome
+#$browser= Watir::Browser.new  :chrome
+
+#Implicit wait
+$browser.manage.timeouts.implicit_wait = 30
+
+#Maximize the window
+$browser.manage.window.maximize
+
+$browser.navigate.to"https://demoqa.com/tooltip-and-double-click/"
+
+dub_clk=$browser.find_element(:id, 'doubleClickBtn')
+if dub_clk.displayed?
+  puts "displayed"
+end
+
+#$browser.action.double_click(dub_clk).perform
+
+
+rigt_click= $browser.find_element(id:'rightClickBtn')
+
+if rigt_click.displayed?
+  puts "Rigt click"
+end
+
+$browser.action.context_click(rigt_click).perform
+
+sleep 3
+
+copy_me = $browser.find_element(xpath:'(//div/div[@class="contextMenuItem"])[2]')
+
+$browser.action.move_to(copy_me).click.perform
+puts "Clicked"
+sleep 3

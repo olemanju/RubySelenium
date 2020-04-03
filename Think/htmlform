@@ -1,0 +1,33 @@
+require 'selenium-webdriver'
+require 'watir'
+
+Selenium::WebDriver::Chrome::Service.driver_path="D:/Softwares/Drivers/Chrome/79/chromedriver_win32/chromedriver.exe"
+
+@browser= Watir::Browser.new  :chrome
+
+#Implicit wait
+#@browser.timeouts.implicit_wait = 30
+
+#Maximize the window
+@browser.window.maximize()
+
+@browser.goto "https://demoqa.com/html-contact-form/"
+
+username = @browser.input(class:'firstname')
+username.send_keys("Achintya")
+
+lastname= @browser.input(id:'lname')
+lastname.send_keys("Ashwini")
+
+@browser.input(name:'country').send_keys("India")
+sleep 2
+@browser.textarea(id:'subject',name:'subject').send_keys("C:/Users/Manjunath Ole/RubymineProjects/Think/htmlform")
+sleep 2
+@browser.a(text:'Google Link').click
+sleep 4
+@browser.back
+sleep 2
+
+
+
+

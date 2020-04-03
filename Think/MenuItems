@@ -1,0 +1,28 @@
+require 'selenium-webdriver'
+require 'selenium/webdriver/common/alert'
+require 'watir'
+
+Selenium::WebDriver::Chrome::Service.driver_path="D:/Softwares/Drivers/Chrome/79/chromedriver_win32/chromedriver.exe"
+@browser = Selenium::WebDriver.for :chrome
+
+#$browser= Watir::Browser.new  :chrome
+
+#Implicit wait
+@browser.manage.timeouts.implicit_wait = 30
+
+#Maximize the window
+@browser.manage.window.maximize
+
+@browser.get "https://demoqa.com/menu/"
+
+menu_parent = @browser.find_element(xpath:'//ul[@class="ui-menu ui-widget ui-widget-content"]/li[4]')
+
+@browser.action.move_to(menu_parent).perform
+
+sleep 1
+
+sub_menu= @browser.find_element(xpath:'//ul[@class="ui-menu ui-widget ui-widget-content ui-front"]/li[3]')
+@browser.action.move_to(sub_menu).click.perform
+
+sleep 5
+

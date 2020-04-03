@@ -1,0 +1,54 @@
+require 'selenium-webdriver'
+require 'watir'
+
+Selenium::WebDriver::Chrome::Service.driver_path="D:/Softwares/Drivers/Chrome/79/chromedriver_win32/chromedriver.exe"
+
+@browser= Watir::Browser.new  :chrome
+
+#Implicit wait
+#@browser.timeouts.implicit_wait = 30
+
+#Maximize the window
+@browser.window.maximize()
+
+@browser.goto "https://demoqa.com/selectmenu/"
+
+=begin
+drp_spped = @browser.select(id:'speed',name:'speed')
+
+puts drp_spped.options.size
+
+drp_spped.options.each do |opt|
+  #puts opt.attribute("value")
+  if opt.text=="Fast"
+    opt.attribute("value")
+    opt.click
+    break
+  end
+
+end
+=end
+
+
+@browser.scroll.to :center
+sleep 4
+
+drp_salt= @browser.span(id:'salutation-button',role:'combobox')
+drp_salt.click
+=begin
+sel_title.selected_options.select
+sel_title.options.each do |opt|
+  if opt.text=="Mrs."
+    puts opt.text
+    opt.select
+    break
+  end
+end
+=end
+sel_title= @browser.select_list(xpath:'//select[@id="salutation"]')
+
+
+sleep 7
+
+
+sleep 6
